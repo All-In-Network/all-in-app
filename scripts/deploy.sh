@@ -66,6 +66,20 @@ docker run -d -e VIRTUAL_HOST=rpc.all-in.app \
     all-in-rpc-prod
 
 #
+# WebSocket configuration
+#
+
+# Removes the old WebSocket
+docker container stop all-in-api && docker container rm all-in-api
+docker image rm all-in-api:latest
+
+# Build the WebSocket docker image
+docker build -t all-in-api-prod ${WEBSOCKET_PATH}
+
+# Deploy the WebSocket on Internet
+docker run -d --network=proxy --name all-in-api all-in-api-prod
+
+#
 # Frontend configuration
 #
 
