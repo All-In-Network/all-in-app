@@ -69,6 +69,9 @@ docker run -d -e VIRTUAL_HOST=rpc.all-in.app \
 # WebSocket configuration
 #
 
+# Get the most recent changes of the parachain node
+git -C ${WEBSOCKET_PATH} pull origin master
+
 # Removes the old WebSocket
 docker container stop all-in-api && docker container rm all-in-api
 docker image rm all-in-api:latest
