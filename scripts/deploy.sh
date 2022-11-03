@@ -1,9 +1,15 @@
 #!/bin/bash
+set -a
+
 #
 # Deploys All in Network infrastructure
 #
 
+. .env
+
 PRECONFIGURE_PARACHAIN=${PRECONFIGURE_PARACHAIN:-0}
+
+set +a
 
 #
 # Parachain node configuration
