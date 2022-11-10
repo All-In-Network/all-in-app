@@ -17,7 +17,7 @@ set +a
 
 
 # Get the most recent changes of the parachain node
-git -C ${PARACHAIN_PATH} pull origin master
+git -C ${PARACHAIN_PATH} pull origin main
 
 # Removes the old parachain node
 docker compose -f ${PARACHAIN_PATH}/docker-compose.yml down -v
